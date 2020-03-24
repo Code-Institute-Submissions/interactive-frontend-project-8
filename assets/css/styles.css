@@ -5,3 +5,48 @@
     font-family:'Coda Caption', sans-serif;
   }
   
+.turn-tile {
+  background-color: transparent;
+  width: 100%;
+  height: 150px;
+
+  max-width: 47%;
+  perspective: 1000px; 
+}
+
+
+.turn-tile-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.2s;
+ transition-timing-function: 0.01s;
+  transform-style: preserve-3d;
+}
+
+
+
+.turn-tile-front, .tunr-tile-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  border: 2px solid #f1f1f1;
+}
+
+
+
+
+.turn-tile-front {
+  background-color:black;
+  color: black;
+}
+
+
+.turn-tile-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
