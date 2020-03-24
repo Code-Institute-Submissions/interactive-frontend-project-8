@@ -4,6 +4,19 @@
     text-align:center;
     font-family:'Coda Caption', sans-serif;
   }
+
+
+  .fullscreen {
+    height: 100vh;
+    background-color:black;
+  }
+  
+  
+.game-button {
+  width: 47%;
+}
+
+ 
   
 .turn-tile {
   background-color: transparent;
@@ -53,4 +66,28 @@
 
 .turn-tile:hover .turn-tile-inner {
   transform: rotateY(180deg);
+}
+
+
+
+.animation {
+  animation-duration: 1s;
+  animation-name: bounceDown;
+ 
+}
+
+@keyframes bounceDown {
+  0% {
+    opacity: 0;
+    transform:translateY(-2000px);
+  }
+
+  100% {
+    transform:translateY(0);
+  }
+}
+
+.bounceDown {
+  animation-name:bounceDown;
+  font-family:'Coda Caption', sans-serif;
 }

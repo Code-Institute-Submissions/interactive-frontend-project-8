@@ -7,16 +7,14 @@ var game ={
 }
 
 function clearGame(){
-    started= true,
-    currentGame = [],
-    playerMove = 0;
+    game.started= true,
+    game.currentGame = [],
+    game.playerMove = 0;
 
 
 }
 
 function startGame() {
     clearGame();
-    started = true;
-
-
+    game.started = true;
 }
