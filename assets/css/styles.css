@@ -91,3 +91,8 @@
   animation-name:bounceDown;
   font-family:'Coda Caption', sans-serif;
 }
+
+.hidden {
+  display: none;
+}
+
