@@ -50,3 +50,7 @@
   color: white;
   transform: rotateY(180deg);
 }
+
+.turn-tile:hover .turn-tile-inner {
+  transform: rotateY(180deg);
+}
