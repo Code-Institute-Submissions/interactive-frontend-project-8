@@ -3,99 +3,99 @@
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Memory Game</title>
+	<title>Memory Game</title>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 	<link href="assets/css/styles.css" rel="stylesheet">
+	<link href="assets/css/all.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Coda+Caption:800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+	<div class="fullscreen">
+		<div class="jumbotron header">
+			<h1>Memory Game</h1>
 
-
-		<div class="fullscreen">
-	<div class="jumbotron header">
-		<h1>Memory Game</h1>
-	</div>
-
-
-	<div class="container">
-		<div class="row">
-			<div class="col sm-8">
-				<div id="game-menu"  class="animation bounceDown text-center">
-					<button id="start-game-button" class="btn btn-lg btn-block" onclick="startGame()"> start game </button>
-					<div class="form-check mt-2 mb-3 text-white">
-						<input class="form-check-input" type="checkbox" id="gamemode-checkbox">
-						<label class="form-check-label" for="gamemode-checkbox">
-							Strict Gamemode
-						</label>
-				</div>
-				<button class="btn btn-lg  btn-block">
-					Tutorial
-				</button>
-				</div>
-				
-
-			</div>
 		</div>
-
-		<div id="game-container" class="animation container bounceDown hidden">
+		<div class="container">
 			<div class="row">
-				<button class="btn btn-lg btn-block" >Exit</button>
-			</div>
-
-			<div class="row mt-2">		
-				<div class="turn-tile">
-					<div class="tunr-tile-inner">
-						<div class="turn-tile-front">
+				<div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+					<div id="game-menu" class="animation bounceDown text-center">
+						<button id="start-game-button" class="btn btn-lg btn-outline-light btn-block"
+							onclick="startGame()">
+							Start Game
+						</button>
+						<div class="form-check mt-2 mb-3 text-white">
+							<input class="form-check-input" type="checkbox" id="gamemode-checkbox">
+							<label class="form-check-label" for="gamemode-checkbox">
+								Strict Gamemode
+							</label>
 						</div>
-						<div class="turn-tile-back">
-						</div>
+						<button id="how-to-play-button" class="btn btn-lg btn-outline-light btn-block">
+							Tutorial
+						</button>
 					</div>
-				</div>
 
-				<div class="turn-tile" >
-					<div class="tunr-tile-inner">
-						<div class="turn-tile-front">
-						</div>
-						<div class="turn-tile-back">
-						</div>
-					</div>
-				</div>
-			</div>
 
-	
-			<div class="row mt-4">
-				<div class="turn-tile">
-					<div class="turn-tile-inner">
-						<div class="turn-tile-front">
+					<div id="game-container" class="animation container bounceDown hidden">
+						<div class="row d-flex justify-content-between">
+							<button class="btn btn-lg btn-outline-light btn-block" onclick="exitGame()">
+								<span>
+									Exit
+									<i class="fas fa-sign-out-alt"></i>
+								</span>
+							</button>
 						</div>
-						<div class="turn-tile-back">
-						</div>
-					</div>
-				</div>
 
-				<div class="turn-tile">
-					<div class="turn-tile-inner">
-						<div class="turn-tile-front">
+						<!---->
+					
+						
+						<div class="row mt-2 d-flex justify-content-between">		
+							<div id="0" class="tile flip-card">
+								<div class="flip-card-inner">
+									<div class="flip-card-front">
+									</div>
+									<div class="flip-card-back card-1">
+									</div>
+								</div>
+							</div>
+
+							<div id="1" class="tile flip-card">
+								<div class="flip-card-inner">
+									<div class="flip-card-front">
+									</div>
+									<div class="flip-card-back card-2">
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="turn-tile-back">
+
+					
+
+						<div class="row mt-4 d-flex justify-content-between">
+							<div id="2" class="tile flip-card">
+								<div class="flip-card-inner">
+									<div class="flip-card-front">
+									</div>
+									<div class="flip-card-back card-3">
+									</div>
+								</div>
+							</div>
+
+							<div id="3" class="tile flip-card">
+								<div class="flip-card-inner">
+									<div class="flip-card-front">
+									</div>
+									<div class="flip-card-back">
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-</div>
-</div>
-
-
-
-
-		</div>
-	</div>
-</div>
 
 
 
@@ -108,8 +108,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 		crossorigin="anonymous"></script>
+	<script src="script/script.js" type="text/javascript"></script>
 </body>
-
-
 
 </html>

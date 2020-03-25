@@ -1,46 +1,45 @@
 .header {
-    background-color:black;
-    color:white;
-    text-align:center;
-    font-family:'Coda Caption', sans-serif;
-  }
+  background-color:black;
+  color:white;
+  text-align:center;
+  font-family:'Coda Caption', sans-serif;
+}
 
-
-  .fullscreen {
-    height: 100vh;
-    background-color:black;
-  }
-  
-  
 .game-button {
   width: 47%;
 }
 
- 
-  
-.turn-tile {
+.bg-black {
+  background-color:black;
+}
+
+
+.flip-card {
   background-color: transparent;
   width: 100%;
   height: 150px;
 
   max-width: 47%;
-  perspective: 1000px; 
+  perspective: 1000px;
 }
 
-
-.turn-tile-inner {
+.flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
   text-align: center;
   transition: transform 0.2s;
- transition-timing-function: 0.01s;
+ 
+  transition-timing-function: 0.01s;
   transform-style: preserve-3d;
 }
 
+.flip-card-onclick .flip-card-inner {
+  transform: rotateY(180deg);
+}
 
 
-.turn-tile-front, .tunr-tile-back {
+.flip-card-front, .flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -50,23 +49,17 @@
 }
 
 
-
-
-.turn-tile-front {
+.flip-card-front {
   background-color:black;
   color: black;
 }
 
-
-.turn-tile-back {
+.flip-card-back {
   background-color: dodgerblue;
   color: white;
   transform: rotateY(180deg);
 }
 
-.turn-tile:hover .turn-tile-inner {
-  transform: rotateY(180deg);
-}
 
 
 
@@ -95,4 +88,13 @@
 .hidden {
   display: none;
 }
+
+.fullscreen {
+  height: 100vh;
+  background-color:black;
+}
+
+
+
+
 
