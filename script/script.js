@@ -1,23 +1,28 @@
 var game = {
     started: false,
     showing: false,
-    color: ["#51ff0d" , "#4deeea" , "#ffe700"],
+    strictGamemode: false,
+    possibilities: ["#51ff0d" , "#4deeea" , "#ffe700"],
     currentGame: [],
     playerMoves: [],
     playerMove: 0,
-    
+    maxStageNumber: 20
 }
 
 const elements = {
     gameContainer: $('#game-container'),
     gameMenu: $('#game-menu'),
+    audioPlayer: document.querySelector('#player'),
+    audioPlayer2:document.querySelector('#player2'),
     tiles: document.querySelectorAll('.tile'),
+    correctAlert: $('#correct-alert'),
+    stageNumber: $('.stage-number'),
+    maxStageNumber: $('.max-stage-number'),
     
+    stageProgress: $('#stage-progress'),
     waitText: $('#wait-text'),
     goText: $('#go-text')
 }
-  
-
 
 function clearGame() {
     game.started = false;
@@ -29,10 +34,13 @@ function startGame() {
     clearGame();
     game.started = true;
 
+    game.strictGamemode = elements.gamemodeCheckbox[0].checked;
+
     elements.goText.hide()
-     elements.gameMenu.hide()
+    elements.gameMenu.hide()
     elements.gameContainer.show()
 
+  
 
     nextPattern()
     setTimeout(showPattern, 1500);
@@ -47,13 +55,22 @@ function nextPattern() {
     game.playerMove = 0;
 }
 
+function nextStage() {
+    elements.stageNumber.text(game.currentGame.length + 1);
+    elements.correctAlert.modal('hide');
+    
+    nextPattern()
 
+    setTimeout(showPattern, 1000)
+}
 
 function exitGame() {
     clearGame()
-   
-    
+    elements.gameContainer.hide()
+    elements.gameMenu.show()
 }
+
+
 
 // show user the pattern they have to repeat
 function showPattern() {
@@ -88,9 +105,6 @@ function showPattern() {
     }, 1000);
 }
 
-
-
-  
 function tileClicked(tile) {
     console.dir(tile)
     // only allow clicking on tiles when game is started and game is not showing pattern
@@ -98,41 +112,59 @@ function tileClicked(tile) {
 
         flipTile(tile);
 
-        
+        // check if game reached maximum number of stages i.e. game has been won
+        if (game.playerMove < game.maxStageNumber) {
+
             // check if current move (tile clicked) matches the tile in the generated pattern
             if (parseInt(tile.id) == game.currentGame[game.playerMove]) {
                 // increase the pattern pointer
                 game.playerMove++;
                 
+                // play sound when correct tile has been clicked
+                elements.audioPlayer.pause();
+                elements.audioPlayer.currentTime = 0;
+                elements.audioPlayer.play();
                 
 
                 
-               
+                // check if we reached the end of the current pattern
+                if (game.playerMove == game.currentGame.length) {
+                    
+                   
+                    
+                    // show alert prompting user to go to the next stage
+                    elements.correctAlert.modal('show');
+                }
+            } 
+
             
+                    
+                    
+                }
             }
         }
-    }
-            
+    
+
 
 
 
 function flipTile(tile) {
-    
+    // unflip all other tiles on pressing a tile
     unflipOtherTiles(tile)
     
-    
+    // add flip effect
     tile.classList.add('flip-card-onclick');
     
-    
+    // remove flip effect after 1 second
     setTimeout(function() {
         tile.classList.remove('flip-card-onclick')
     }, 1000)
 }
 
 function unflipOtherTiles(currentTile) {
-    
+    // for each tile in the grid
     elements.tiles.forEach(function(tile) {
-        
+        // if its not the currently clicked tile unflip each tile
         if (tile != currentTile) {
             tile.classList.remove('flip-card-onclick')
         }

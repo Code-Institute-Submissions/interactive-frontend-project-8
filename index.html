@@ -6,7 +6,7 @@
 	<title>Memory Game</title>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 	<link href="assets/css/styles.css" rel="stylesheet">
-	<link href="assets/css/all.css" rel="stylesheet">
+	
 	<link href="https://fonts.googleapis.com/css?family=Coda+Caption:800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -109,7 +109,7 @@
 
 
 	<!------AUDIO PLAYER------->
-	<audio controls id="player" class="d-none">
+		<audio controls id="player" class="d-none">
 		<source id="player-src" src="assets/audio/correct.mp3">
 		</source>
 	</audio>
@@ -117,6 +117,35 @@
 		<source id="player-src-2" src="assets/audio/incorrect.mp3">
 		</source>
 	</audio>
+
+
+	<!-----modal-->
+	<div class="modal fade" id="correct-alert" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content bg-black">
+				<div class="modal-body">
+					<div class="text-center">
+						<h3 class="text-center text-success">
+							<i class="fas fa-check-circle"></i>
+							Correct! Well Done!
+						</h3>
+						<div class="progress border border-white mt-4 mb-3">
+							<div id="stage-progress" class="progress-bar bg-black" style="width: 50%"></div>
+						</div>
+
+						<h4 class="text-white">
+							Stage:
+							<span class="stage-number"></span>/<span class="max-stage-number"></span></h4>
+
+						<button class="btn btn-lg btn-outline-light btn-block mt-3" type="button" onclick="nextStage()"
+							aria-label="Close">
+							Next Stage
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 
