@@ -18,9 +18,9 @@ const elements = {
     correctAlert: $('#correct-alert'),
     stageNumber: $('.stage-number'),
     maxStageNumber: $('.max-stage-number'),
-    
-    stageProgress: $('#stage-progress'),
+     stageProgress: $('#stage-progress'),
     waitText: $('#wait-text'),
+    wrongAlert: $('#wrong-alert'),
     goText: $('#go-text')
 }
 
@@ -34,17 +34,30 @@ function startGame() {
     clearGame();
     game.started = true;
 
-    game.strictGamemode = elements.gamemodeCheckbox[0].checked;
+    
 
     elements.goText.hide()
     elements.gameMenu.hide()
     elements.gameContainer.show()
 
-  
+    
+    elements.maxStageNumber.text(game.maxStageNumber);
+    elements.stageNumber.text(1)
 
     nextPattern()
     setTimeout(showPattern, 1500);
 }
+
+function nextStage() {
+    elements.stageNumber.text(game.currentGame.length + 1);
+    elements.correctAlert.modal('hide');
+    
+    nextPattern()
+
+    setTimeout(showPattern, 1000)
+}
+
+
 
 function nextPattern() {
     var nextTileId = Math.floor(Math.random() * 4);
@@ -54,6 +67,7 @@ function nextPattern() {
     game.currentGame.push(nextTileId);
     game.playerMove = 0;
 }
+
 
 function nextStage() {
     elements.stageNumber.text(game.currentGame.length + 1);
@@ -135,7 +149,12 @@ function tileClicked(tile) {
                     // show alert prompting user to go to the next stage
                     elements.correctAlert.modal('show');
                 }
-            } 
+                
+            } else {
+                // show wrong move alert and prompt to show pattern again
+                elements.audioPlayer2.play();
+                elements.wrongAlert.modal('show');
+            }
 
             
                     

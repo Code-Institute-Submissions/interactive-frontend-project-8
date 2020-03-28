@@ -6,7 +6,6 @@
 	<title>Memory Game</title>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 	<link href="assets/css/styles.css" rel="stylesheet">
-	
 	<link href="https://fonts.googleapis.com/css?family=Coda+Caption:800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -41,8 +40,9 @@
 						<div class="row d-flex justify-content-between">
 							<button class="btn btn-lg btn-outline-light btn-block" onclick="exitGame()">
 								<span>
-									Exit
 									<i class="fas fa-sign-out-alt"></i>
+									Exit
+									
 								</span>
 							</button>
 						</div>
@@ -146,7 +146,26 @@
 			</div>
 		</div>
 	</div>
+<!------WRONG ALERT MODAL------->
+	<div class="modal fade" id="wrong-alert" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content bg-black">
+				<div class="modal-body">
+					<div class="text-center">
+						<h3 class="text-center text-danger">
+							<i class="fas fa-check-circle"></i>
+							Wrong Move! Look again!
+						</h3>
 
+						<button class="btn btn-lg btn-outline-light btn-block mt-3" type="button"
+							onclick="repeatStage()" aria-label="Close">
+							Preview Again
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
