@@ -1,3 +1,11 @@
+body {
+  background-color:black;
+ 
+}
+
+
+
+
 .header {
   background-color:black;
   color:white;
@@ -75,6 +83,8 @@
     transform:translateY(-2000px);
   }
 
+  
+
   100% {
     transform:translateY(0);
   }
@@ -90,9 +100,12 @@
 }
 
 .fullscreen {
-  height: 100vh;
+  height:100vh;
+  
   background-color:black;
 }
+
+
 
  /*----card colors-----*/
  .card-1 {
