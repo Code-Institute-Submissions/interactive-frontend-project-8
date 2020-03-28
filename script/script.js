@@ -16,11 +16,14 @@ const elements = {
     audioPlayer2:document.querySelector('#player2'),
     tiles: document.querySelectorAll('.tile'),
     correctAlert: $('#correct-alert'),
+    wrongAlert: $('#wrong-alert'),
+    failAlert: $('#fail-alert'),
+    alertModal: $('#alert-modal'),
     stageNumber: $('.stage-number'),
     maxStageNumber: $('.max-stage-number'),
-     stageProgress: $('#stage-progress'),
+    gamemodeCheckbox: $('#gamemode-checkbox'),
+    stageProgress: $('#stage-progress'),
     waitText: $('#wait-text'),
-    wrongAlert: $('#wrong-alert'),
     goText: $('#go-text')
 }
 
@@ -34,30 +37,20 @@ function startGame() {
     clearGame();
     game.started = true;
 
-    
+    game.strictGamemode = elements.gamemodeCheckbox[0].checked;
 
     elements.goText.hide()
     elements.gameMenu.hide()
     elements.gameContainer.show()
 
-    
+    elements.failAlert.modal('hide')
+
     elements.maxStageNumber.text(game.maxStageNumber);
     elements.stageNumber.text(1)
 
     nextPattern()
     setTimeout(showPattern, 1500);
 }
-
-function nextStage() {
-    elements.stageNumber.text(game.currentGame.length + 1);
-    elements.correctAlert.modal('hide');
-    
-    nextPattern()
-
-    setTimeout(showPattern, 1000)
-}
-
-
 
 function nextPattern() {
     var nextTileId = Math.floor(Math.random() * 4);
@@ -67,7 +60,6 @@ function nextPattern() {
     game.currentGame.push(nextTileId);
     game.playerMove = 0;
 }
-
 
 function nextStage() {
     elements.stageNumber.text(game.currentGame.length + 1);
@@ -84,7 +76,14 @@ function exitGame() {
     elements.gameMenu.show()
 }
 
+function repeatStage() {
+    elements.wrongAlert.modal('hide');
+    game.playerMove = 0;
 
+
+    unflipOtherTiles()
+    setTimeout(showPattern, 1000);
+}
 
 // show user the pattern they have to repeat
 function showPattern() {
@@ -143,27 +142,28 @@ function tileClicked(tile) {
                 
                 // check if we reached the end of the current pattern
                 if (game.playerMove == game.currentGame.length) {
-                    
-                   
+                    // update the progress bar
+                    elements.stageProgress.css('width', `${(game.currentGame.length / game.maxStageNumber) * 100}%`);
                     
                     // show alert prompting user to go to the next stage
                     elements.correctAlert.modal('show');
                 }
-                
+            // current move did not match current pattern, wrong move
             } else {
-                // show wrong move alert and prompt to show pattern again
-                elements.audioPlayer2.play();
-                elements.wrongAlert.modal('show');
-            }
 
-            
-                    
-                    
+                if (game.strictGamemode) {
+                    elements.audioPlayer2.play();
+                    // show fail alert and prompt to restart or exit game if strict mode has been selected
+                    elements.failAlert.modal('show');
+                } else {
+                    // show wrong move alert and prompt to show pattern again
+                    elements.audioPlayer2.play();
+                    elements.wrongAlert.modal('show');
                 }
             }
         }
-    
-
+    }
+}
 
 
 
