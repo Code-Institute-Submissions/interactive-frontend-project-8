@@ -16,7 +16,7 @@
 			<h1>Memory Game</h1>
 
 		</div>
-		<div class="container">
+		<div class="container pb-5">
 			<div class="row">
 				<div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
 					<div id="game-menu" class="animation bounceDown text-center">
@@ -31,6 +31,7 @@
 							</label>
 						</div>
 						<button id="how-to-play-button" class="btn btn-lg btn-outline-light btn-block" data-toggle="modal" data-target="#tutorial" onclick="">
+							<i class="fa fa-question-circle" aria-hidden="true"></i>
 							Tutorial
 						</button>
 					</div>
@@ -41,7 +42,7 @@
 							<button class="btn btn-lg btn-outline-light btn-block" onclick="exitGame()">
 								<span>
 									Exit
-									<i class="fas fa-sign-out-alt"></i>
+									<i class="fa fa-sign-out" aria-hidden="true"></i>
 								</span>
 							</button>
 						</div>
@@ -150,7 +151,7 @@
 				<div class="modal-body">
 					<div class="text-center">
 						<h3 class="text-center text-success">
-							<i class="fas fa-check-circle"></i>
+							<i class="fa fa-check" aria-hidden="true"></i>
 							Correct! Well Done!
 						</h3>
 						<div class="progress border border-white mt-4 mb-3">
@@ -177,7 +178,7 @@
 				<div class="modal-body">
 					<div class="text-center">
 						<h3 class="text-center text-danger">
-							<i class="fas fa-check-circle"></i>
+							<i class="fa fa-times" aria-hidden="true"></i>
 							Wrong Move! Look again!
 						</h3>
 
