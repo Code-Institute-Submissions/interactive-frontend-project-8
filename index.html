@@ -30,7 +30,7 @@
 								Strict Gamemode
 							</label>
 						</div>
-						<button id="how-to-play-button" class="btn btn-lg btn-outline-light btn-block">
+						<button id="how-to-play-button" class="btn btn-lg btn-outline-light btn-block" data-toggle="modal" data-target="#tutorial" onclick="">
 							Tutorial
 						</button>
 					</div>
@@ -146,14 +146,14 @@
 			</div>
 		</div>
 	</div>
-<!------WRONG ALERT MODAL------->
+	<!-----ALERT MODAL------->
 	<div class="modal fade" id="wrong-alert" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content bg-black">
 				<div class="modal-body">
 					<div class="text-center">
 						<h3 class="text-center text-danger">
-							<i class="fas fa-check-circle"></i>
+							<i class="fas fa fa-check-circle"></i>
 							Wrong Move! Look again!
 						</h3>
 
@@ -167,6 +167,39 @@
 		</div>
 	</div>
 
+	<!----tutor------>
+	<div class="modal fade" id="tutorial" tabindex="-1" role="dialog"  aria-hidden="true">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content bg-black text-white">
+			<div class="modal-header">
+			  <h5 class="modal-title">Tutorial</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+				<h5>Step by Step</h5>
+					<ol>
+						<li> Click start Game and wait for the tiles to appear on screen</li>
+							<img src="assets/images/start game.PNG" alt="start Game Button" class="tutorial-img">
+						<li> Presented to you is four black tiles which will flip over revealing a color. </li>
+							<img src="assets/images/black-tiles.PNG" alt="black tiles" class="tutorial-img">
+						<li> Your challenge is to remember the sequence in which the tiles appear</li>
+							<img src="assets/images/preview.PNG" alt="preview" class="tutorial-img">
+						<li><p>If you remember the sequence correctly you can proceed.</p>
+							<img src="assets/images/correct.PNG" alt="correct" class="tutorial-img"></li>
+							
+						<li> If you fail to remember the pattern that was displayed to you, you will be given 
+							the option to "preview again"
+							<img src="assets/images/incorrect.PNG" alt="preview again" class="tutorial-img">
+						</li>
+						<li> If you choose strict mode the "preview again" option will not be available and you will return to level 0 </li><br>
+						<li> Try and reach level 20, Good Luck memorising!!</li>
+					</ol>
+			  
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-black text-white modal-btn"  data-dismiss="modal">Close</button>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
