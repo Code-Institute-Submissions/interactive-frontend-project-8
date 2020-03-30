@@ -22,3 +22,4 @@ The strictmode option is a simple checkbox which the user can select if they wis
 
 ### Skeleton:
 I created a wireframe using the program "Miro". 
+![](assests/images/memorygame.jpg)
