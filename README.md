@@ -1,8 +1,9 @@
-# interactive-frontend-project
+# Interactive-frontend-project
  ## Memory Tiles
  
  This is my Interactive Front-end Development project. I created a simple memory game which was inspired by the popular game, Simon. 
  
+ ---
  
  
 ### Strategy 
@@ -14,7 +15,7 @@ Its purpose is to provide the user with a enjoyable game.
 * **As a user**: I want an application that will react quickly to my interaction to keep my interest. 
 * **As a Developer**: I want to create a game that is intuitive and fun for the user. 
 
-
+---
 ### How To Play
 Press the Start Game button .The game will show the user a pattern, one tile at a time. The challenge is that with each level this sequence will increment by one tile. The user must remember each tile in the correct order. The goal is to reach level 20!
 
