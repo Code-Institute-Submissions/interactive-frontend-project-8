@@ -6,7 +6,7 @@
  ---
  
  
-### Strategy 
+## Strategy 
 
 My Goal is to design a memory game that is fun, intuitive and user friendly. The page will be simplistic and easy to navigate around. 
 Its purpose is to provide the user with a enjoyable game. 
@@ -16,6 +16,7 @@ Its purpose is to provide the user with a enjoyable game.
 * **As a Developer**: I want to create a game that is intuitive and fun for the user. 
 
 ---
+
 ### How To Play
 Press the Start Game button .The game will show the user a pattern, one tile at a time. The challenge is that with each level this sequence will increment by one tile. The user must remember each tile in the correct order. The goal is to reach level 20!
 
