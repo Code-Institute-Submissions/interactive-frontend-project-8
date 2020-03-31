@@ -1,7 +1,8 @@
 # interactive-frontend-project
  ## Memory Tiles
  
- This is my Interactive Front-end Development project. I created a simple memory game which grows in complexity with each level. 
+ This is my Interactive Front-end Development project. I created a simple memory game which was inspired by the popular game, Simon. 
+ 
  
  
 ### Strategy 
@@ -9,6 +10,13 @@
 My Goal is to design a memory game that is fun, intuitive and user friendly. The page will be simplistic and easy to navigate around. 
 Its purpose is to provide the user with a enjoyable game. 
 
+#### User Stories: 
+* **As a user**: I want an application that will react quickly to my interaction to keep my interest. 
+* **As a Developer**: I want to create a game that is intuitive and fun for the user. 
+
+
+### How To Play
+Press the Start Game button .The game will show the user a pattern, one tile at a time. The challenge is that with each level this sequence will increment by one tile. The user must remember each tile in the correct order. The goal is to reach level 20!
 
 ### Scope 
 This page is to provide users with quick access to a memory game. The Game is to challenge the users memory and have them remember a sequence of flip tiles and the order in which they appear. 
@@ -22,7 +30,7 @@ The strictmode option is a simple checkbox which the user can select if they wis
 
 ### Skeleton
 I created a wireframe using the program "Miro". 
-![Wireframe](assests/images/memory%20game.png)
+![Wireframe]()
 
 
 ### Surface
@@ -37,5 +45,27 @@ The "WAIT" and "GO" text were coloured yellow and green, this emmualtes the traf
 *javascript
 
 ### Features 
+
+#### Bounce Down Effect:
+Upon entry to the page, the game menu reveals itself with a bouncing down effect from the top of the screen. 
+This effect is also applied to the game container itself, which is triggered when the user selects the "start Game " button. 
+
+#### Modals :
+Bootstrap modals were used for the "Correct" and "incorrect" alert. Within these modals are a "next stage", "preview again" or "restart game " button. The "preview again" button only appears within the modal if you havent selected the "strict Mode" checkbox, otherwise the user is asked to restart the game. 
+
+#### Audio Alerts:
+Audio is triggered by the users input depending on whether or not they have selected the correct pattern previously displayed to them. 
+
+#### Font awesome Icons :
+Font awesome icons were used for the correct alert, incorrect alert, exit button and tutorial button. 
+
+#### Counter :
+A display of what level the user is on is on the top hand right corner of the game container so the user has a realtime reference to where they are within the game. 
+
+### Features Left to Implement
+
+
+### Testing
+
 
 
