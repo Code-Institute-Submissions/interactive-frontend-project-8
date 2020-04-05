@@ -14,9 +14,12 @@ Its purpose is to provide the user with a enjoyable game.
 #### User Stories: 
 * **As a user** : I expect the game to start when I click the "Start Game " button. 
 * **As a user** : I expect the tutorial information to display once clicked on said button.
-* 
+* **As a user** : I expect the game to tell me when I am correct and incorrect. 
 * **As a user**: I want an application that will react quickly to my interaction to keep my interest. 
-* 
+* **As a user**: I want the application to close when I click the exit button. 
+* **As a user**: I want my progression in the game to be visible as to know how far along I am. 
+
+
 
 ---
 
@@ -86,6 +89,8 @@ Testing was also carried out to ensure that the game would realize when the inco
 
 
 
+## Credits 
+All audio samples were taken from Zapsplat.com [https://www.zapsplat.com/sound-effect-category/game-sounds/]
 
 
 
