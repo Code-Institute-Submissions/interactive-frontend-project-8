@@ -13,7 +13,7 @@
 <body>
 	<div class="fullscreen">
 		<div class="jumbotron header">
-			<h1>Memory Game</h1>
+			<h1>Memory Tiles</h1>
 
 		</div>
 		<div class="container pb-5">
@@ -95,7 +95,7 @@
 								<div class="flip-card-inner">
 									<div class="flip-card-front">
 									</div>
-									<div class="flip-card-back">
+									<div class="flip-card-back card-4">
 									</div>
 								</div>
 							</div>
@@ -178,7 +178,7 @@
 				<div class="modal-body">
 					<div class="text-center">
 						<h3 class="text-center text-danger">
-							<i class="fa fa-times" aria-hidden="true"></i>
+							<i class="fa  fa fa-times" aria-hidden="true"></i>
 							Wrong Move! Look again!
 						</h3>
 
@@ -198,13 +198,39 @@
 				<div class="modal-body">
 					<div class="text-center">
 						<h3 class="text-center text-danger">
-							<i class="fas fa-check-circle"></i>
+							<i class="fa  fa fa-times" aria-hidden="true"></i>
 							Wrong move! You failed.
 						</h3>
 
 						<button class="btn btn-lg btn-outline-light btn-block mt-3" type="button" onclick="startGame()"
 							aria-label="Close">
+
 							Restart Game
+							<i class="fa fa-refresh" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="modal fade" id="won" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content bg-black">
+				<div class="modal-body">
+					<div class="text-center">
+						<h3 class="text-center text-danger">
+							Congratulations!! You Won!
+							
+						</h3>
+
+						<button class="btn btn-lg btn-outline-light btn-block mt-3" type="button" onclick="startGame()"data-dismiss="modal"
+							aria-label="Close">
+
+							Restart Game
+							<i class="fa fa-refresh" aria-hidden="true"></i>
 						</button>
 					</div>
 				</div>
@@ -218,6 +244,10 @@
 	</audio>
 	<audio controls id ="player2" class="d-none">
 		<source id="player-src-2" src="assets/audio/incorrect.mp3">
+		</source>
+	</audio>
+	<audio controls id="player3" class="d-none">
+		<source id ="player-src-3" src="assets/audio/won.mp3">
 		</source>
 	</audio>
 

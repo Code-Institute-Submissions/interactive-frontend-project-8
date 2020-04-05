@@ -2,18 +2,19 @@ var game = {
     started: false,
     showing: false,
     strictGamemode: false,
-    possibilities: ["#51ff0d" , "#4deeea" , "#ffe700"],
+    possibilities: ["#51ff0d" , "#4deeea" , "#ffe700", " #1B03A3"],
     currentGame: [],
     playerMoves: [],
     playerMove: 0,
-    maxStageNumber: 20
+    maxStageNumber: 2
 }
 
 const elements = {
     gameContainer: $('#game-container'),
     gameMenu: $('#game-menu'),
     audioPlayer: document.querySelector('#player'),
-    audioPlayer2:document.querySelector('#player2'),
+	audioPlayer2:document.querySelector('#player2'),
+	audioPlayer3:document.querySelector('#player3'),
     tiles: document.querySelectorAll('.tile'),
     correctAlert: $('#correct-alert'),
     wrongAlert: $('#wrong-alert'),
@@ -24,6 +25,7 @@ const elements = {
     gamemodeCheckbox: $('#gamemode-checkbox'),
     stageProgress: $('#stage-progress'),
     waitText: $('#wait-text'),
+    wonAlert: $('#won'),
     goText: $('#go-text')
 }
 
@@ -54,6 +56,7 @@ function startGame() {
 
 function nextPattern() {
     var nextTileId = Math.floor(Math.random() * 4);
+    //if its equal to the previous element in array.
     while (nextTileId == game.currentGame[game.currentGame.length - 1]) {
         nextTileId = Math.floor(Math.random() * 4);
     }
@@ -125,10 +128,12 @@ function tileClicked(tile) {
 
         flipTile(tile);
 
+    
+        
+        
         // check if game reached maximum number of stages i.e. game has been won
-        if (game.playerMove < game.maxStageNumber) {
-
-            // check if current move (tile clicked) matches the tile in the generated pattern
+        if (game.playerMove < game.maxStageNumber ) {
+         // check if current move (tile clicked) matches the tile in the generated pattern
             if (parseInt(tile.id) == game.currentGame[game.playerMove]) {
                 // increase the pattern pointer
                 game.playerMove++;
@@ -140,14 +145,21 @@ function tileClicked(tile) {
                 
 
                 
-                // check if we reached the end of the current pattern
+                // check if we reached the end of the current pattern         
                 if (game.playerMove == game.currentGame.length) {
-                    // update the progress bar
-                    elements.stageProgress.css('width', `${(game.currentGame.length / game.maxStageNumber) * 100}%`);
+                    if (game.playerMove == game.maxStageNumber ){
+						elements.wonAlert.modal('show');
+						elements.audioPlayer3.play();
+                    } else { 
+                   		// update the progress bar
+                     	elements.stageProgress.css('width', `${(game.currentGame.length / game.maxStageNumber) * 100}%`);
                     
-                    // show alert prompting user to go to the next stage
-                    elements.correctAlert.modal('show');
-                }
+                   		// show alert prompting user to go to the next stage
+                		elements.correctAlert.modal('show');
+                    }
+
+                }   
+                    
             // current move did not match current pattern, wrong move
             } else {
 
@@ -159,11 +171,13 @@ function tileClicked(tile) {
                     // show wrong move alert and prompt to show pattern again
                     elements.audioPlayer2.play();
                     elements.wrongAlert.modal('show');
-                }
+                } 
             }
         }
     }
 }
+
+
 
 
 
