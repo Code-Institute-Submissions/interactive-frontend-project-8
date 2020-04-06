@@ -12,12 +12,16 @@ My Goal is to design a memory game that is fun, intuitive and user friendly. The
 Its purpose is to provide the user with a enjoyable game. 
 
 #### User Stories: 
-* **As a user** : I expect the game to start when I click the "Start Game " button. 
-* **As a user** : I expect the tutorial information to display once clicked on said button.
-* **As a user** : I expect the game to tell me when I am correct and incorrect. 
-* **As a user**: I want an application that will react quickly to my interaction to keep my interest. 
-* **As a user**: I want the application to close when I click the exit button. 
-* **As a user**: I want my progression in the game to be visible as to know how far along I am. 
+## The ideal user:
+** age 10+ **
+** Seeking brain training challenges**
+
+* **As a user** : I want a game that responds quickly to my interaction
+* **As a User** : I want a game that challenges my memory in a fun way. 
+* **As a user** : I want a page that navigates easily and takes me to the game as quickly as possible. 
+* **As a user** : I want a clear definition of the how to play the game. 
+* **As a user** : I want a clear indication of how my progress in the game is. 
+* **As a user** : I want to be able to exit the game easily at any point.
 
 
 
@@ -55,6 +59,7 @@ The "WAIT" and "GO" text were coloured yellow and green, this emmualtes the traf
 
 ## Features 
 
+
 #### Bounce Down Effect:
 Upon entry to the page, the game menu reveals itself with a bouncing down effect from the top of the screen. 
 This effect is also applied to the game container itself, which is triggered when the user selects the "start Game " button. 
@@ -91,6 +96,8 @@ Testing was also carried out to ensure that the game would realize when the inco
 
 ## Credits 
 All audio samples were taken from Zapsplat.com [https://www.zapsplat.com/sound-effect-category/game-sounds/]
+
+ I had help with the transform property used to turn the tiles from [https://www.w3schools.com/]
 
 
 
