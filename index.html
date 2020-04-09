@@ -1,266 +1,233 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Memory Game</title>
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-	<link href="assets/css/styles.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Coda+Caption:800&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
-<body>
-	<div class="fullscreen">
-		<div class="jumbotron header">
-			<h1>Memory Tiles</h1>
-
-		</div>
-		<div class="container pb-5">
-			<div class="row">
-				<div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
-					<div id="game-menu" class="animation bounceDown text-center">
-						<button id="start-game-button" class="btn btn-lg btn-outline-light btn-block"
-							onclick="startGame()">
-							Start Game
-						</button>
-						<div class="form-check mt-2 mb-3 text-white">
-							<input class="form-check-input" type="checkbox" id="gamemode-checkbox">
-							<label class="form-check-label" for="gamemode-checkbox">
-								Strict Gamemode
-							</label>
-						</div>
-						<button id="how-to-play-button" class="btn btn-lg btn-outline-light btn-block" data-toggle="modal" data-target="#tutorial" onclick="">
-							<i class="fa fa-question-circle" aria-hidden="true"></i>
-							Tutorial
-						</button>
-					</div>
-
-
-					<div id="game-container" class="animation container bounceDown hidden">
-						<div class="row d-flex justify-content-between">
-							<button class="btn btn-lg btn-outline-light btn-block" onclick="exitGame()">
-								<span>
-									Exit
-									<i class="fa fa-sign-out" aria-hidden="true"></i>
-								</span>
-							</button>
-						</div>
-
-						<!---->
-						<div class="row mt-3 d-flex justify-content-between">
-							<h4 class="text-white">
-								<span class="stage-number"></span>/<span class="max-stage-number"></span>
-							</h4>
-							<h4 id="go-text" class="text-success">
-								GO
-							</h4>
-							<h4 id="wait-text" class="text-warning">
-								WAIT
-							</h4>
-						</div>
-						<div class="row mt-2 d-flex justify-content-between">
-							<div id="0" class="tile flip-card" onclick="tileClicked(this)">
-								<div class="flip-card-inner">
-									<div class="flip-card-front">
-									</div>
-									<div class="flip-card-back card-1">
-									</div>
-								</div>
-							</div>
-
-							<div id="1" class="tile flip-card" onclick="tileClicked(this)">
-								<div class="flip-card-inner">
-									<div class="flip-card-front">
-									</div>
-									<div class="flip-card-back card-2">
-									</div>
-								</div>
-							</div>
-						</div>
-
-					
-
-						<div class="row mt-4 d-flex justify-content-between">
-							<div id="2" class="tile flip-card" onclick="tileClicked(this)">
-								<div class="flip-card-inner">
-									<div class="flip-card-front">
-									</div>
-									<div class="flip-card-back card-3">
-									</div>
-								</div>
-							</div>
-
-							<div id="3" class="tile flip-card" onclick="tileClicked(this)">
-								<div class="flip-card-inner">
-									<div class="flip-card-front">
-									</div>
-									<div class="flip-card-back card-4">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!------MODALS ----------->
-	<div class="modal fade" id="tutorial" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-		  <div class="modal-content bg-black text-white">
-			<div class="modal-header">
-			  <h5 class="modal-title">Tutorial</h5>
-			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			  </button>
-			</div>
-			<div class="modal-body">
-				<h5>Step by Step</h5>
-					<ol>
-						<li> Click start Game and wait for the tiles to appear on screen</li>
-							<img src="assets/images/start game.PNG" alt="start Game Button" class="tutorial-img">
-						<li> Presented to you is four black tiles which will flip over revealing a color. </li>
-							<img src="assets/images/black-tiles.PNG" alt="black tiles" class="tutorial-img">
-						<li> Your challenge is to remember the sequence in which the tiles appear</li>
-							<img src="assets/images/preview.PNG" alt="preview" class="tutorial-img">
-						<li><p>If you remember the sequence correctly you can proceed.</p>
-							<img src="assets/images/correct.PNG" alt="correct" class="tutorial-img"></li>
-							
-						<li> If you fail to remember the pattern that was displayed to you, you will be given 
-							the option to "preview again"
-							<img src="assets/images/incorrect.PNG" alt="preview again" class="tutorial-img">
-						</li>
-						<li> If you choose strict mode the "preview again" option will not be available and you will return to level 0 </li><br>
-						<li> Try and reach level 20, Good Luck memorising!!</li>
-					</ol>
-			  
-			</div>
-			<div class="modal-footer">
-			  <button type="button" class="btn btn-black text-white modal-btn"  data-dismiss="modal">Close</button>
-			  
-			</div>
-		  </div>
-		</div>
-	  </div>
-
-	<div class="modal fade" id="correct-alert" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content bg-black">
-				<div class="modal-body">
-					<div class="text-center">
-						<h3 class="text-center text-success">
-							<i class="fa fa-check" aria-hidden="true"></i>
-							Correct! Well Done!
-						</h3>
-						<div class="progress border border-white mt-4 mb-3">
-							<div id="stage-progress" class="progress-bar bg-black" style="width: 50%"></div>
-						</div>
-
-						<h4 class="text-white">
-							Stage:
-							<span class="stage-number"></span>/<span class="max-stage-number"></span></h4>
-
-						<button class="btn btn-lg btn-outline-light btn-block mt-3" type="button" onclick="nextStage()"
-							aria-label="Close">
-							Next Stage
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal fade" id="wrong-alert" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content bg-black">
-				<div class="modal-body">
-					<div class="text-center">
-						<h3 class="text-center text-danger">
-							<i class="fa  fa fa-times" aria-hidden="true"></i>
-							Wrong Move! Look again!
-						</h3>
-
-						<button class="btn btn-lg btn-outline-light btn-block mt-3" type="button"
-							onclick="repeatStage()" aria-label="Close">
-							Preview Again
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal fade" id="fail-alert" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content bg-black">
-				<div class="modal-body">
-					<div class="text-center">
-						<h3 class="text-center text-danger">
-							<i class="fa  fa fa-times" aria-hidden="true"></i>
-							Wrong move! You failed.
-						</h3>
-
-						<button class="btn btn-lg btn-outline-light btn-block mt-3" type="button" onclick="startGame()"
-							aria-label="Close">
-
-							Restart Game
-							<i class="fa fa-refresh" aria-hidden="true"></i>
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-	<div class="modal fade" id="won" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content bg-black">
-				<div class="modal-body">
-					<div class="text-center">
-						<h3 class="text-center text-danger">
-							Congratulations!! You Won!
-							
-						</h3>
-
-						<button class="btn btn-lg btn-outline-light btn-block mt-3" type="button" onclick="startGame()"data-dismiss="modal"
-							aria-label="Close">
-
-							Restart Game
-							<i class="fa fa-refresh" aria-hidden="true"></i>
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<audio controls id="player" class="d-none">
-		<source id="player-src" src="assets/audio/correct.mp3">
-		</source>
-	</audio>
-	<audio controls id ="player2" class="d-none">
-		<source id="player-src-2" src="assets/audio/incorrect.mp3">
-		</source>
-	</audio>
-	<audio controls id="player3" class="d-none">
-		<source id ="player-src-3" src="assets/audio/won.mp3">
-		</source>
-	</audio>
-
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-		crossorigin="anonymous"></script>
-	<script src="script/script.js" type="text/javascript"></script>
-</body>
-
+<html lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Memory Game</title>
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+      <link href="assets/css/styles.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   <body>
+      <div class="fullscreen">
+         <div class="jumbotron header">
+            <h1>Memory Tiles</h1>
+         </div>
+         <div class="container pb-5">
+            <div class="row">
+               <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+                  <div id="game-menu" class="animation bounceDown text-center">
+                     <button id="start-game-button" class="btn btn-lg btn-outline-light btn-block"
+                        onclick="startGame()">
+                     Start Game
+                     </button>
+                     <div class="form-check mt-2 mb-3 text-white">
+                        <input class="form-check-input" type="checkbox" id="gamemode-checkbox">
+                        <label class="form-check-label" for="gamemode-checkbox">
+                        Strict Gamemode
+                        </label>
+                     </div>
+                     <button id="how-to-play-button" class="btn btn-lg btn-outline-light btn-block" data-toggle="modal" data-target="#tutorial" onclick="">
+                     <i class="fa fa-question-circle" aria-hidden="true"></i>
+                     Tutorial
+                     </button>
+                  </div>
+                  <div id="game-container" class="animation container bounceDown hidden">
+                     <div class="row d-flex justify-content-between">
+                        <button class="btn btn-lg btn-outline-light btn-block" onclick="exitGame()">
+                        <span>
+                        Exit
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        </span>
+                        </button>
+                     </div>
+                     <!---->
+                     <div class="row mt-3 d-flex justify-content-between">
+                        <h4 class="text-white">
+                           <span class="stage-number"></span>/<span class="max-stage-number"></span>
+                        </h4>
+                        <h4 id="go-text" class="text-success">
+                           GO
+                        </h4>
+                        <h4 id="wait-text" class="text-warning">
+                           WAIT
+                        </h4>
+                     </div>
+                     <div class="row mt-2 d-flex justify-content-between">
+                        <div id="0" class="tile flip-card" onclick="tileClicked(this)">
+                           <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                              </div>
+                              <div class="flip-card-back card-1">
+                              </div>
+                           </div>
+                        </div>
+                        <div id="1" class="tile flip-card" onclick="tileClicked(this)">
+                           <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                              </div>
+                              <div class="flip-card-back card-2">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row mt-4 d-flex justify-content-between">
+                        <div id="2" class="tile flip-card" onclick="tileClicked(this)">
+                           <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                              </div>
+                              <div class="flip-card-back card-3">
+                              </div>
+                           </div>
+                        </div>
+                        <div id="3" class="tile flip-card" onclick="tileClicked(this)">
+                           <div class="flip-card-inner">
+                              <div class="flip-card-front">
+                              </div>
+                              <div class="flip-card-back card-4">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--MODAL-->
+      <div class="modal fade mx-auto" id="tutorial" tabindex="-1" role="dialog" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content bg-black text-white">
+               <div class="modal-header">
+                  <h5 class="modal-title">Tutorial</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <h5>Step by Step</h5>
+                  <ol>
+                     <li> Click start Game and wait for the tiles to appear on screen</li>
+                     <li><img src="assets/images/start game.PNG" alt="start Game Button" class="tutorial-img"></li>
+                     <li> Presented to you is four black tiles which will flip over revealing a color. </li>
+                     <li>><img src="assets/images/black-tiles.PNG" alt="black tiles" class="tutorial-img"></li>
+                     <li> Your challenge is to remember the sequence in which the tiles appear</li>
+                     <li><img src="assets/images/preview.PNG" alt="preview" class="tutorial-img"></li>
+                     <li>
+                        <p>If you remember the sequence correctly you can proceed.</p>
+                     </li>
+                     <li><img src="assets/images/correct.PNG" alt="correct" class="tutorial-img"></li>
+                     <li> If you fail to remember the pattern that was displayed to you, you will be given 
+                        the option to "preview again"
+                     </li>
+                     <li><img src="assets/images/incorrect.PNG" alt="preview again" class="tutorial-img"></li>
+                     <li> If you choose strict mode the "preview again" option will not be available and you will return to level 0 </li>
+                     <li> Try and reach level 20, Good Luck memorising!!</li>
+                  </ol>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-black text-white modal-btn"  data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal fade" id="correct-alert" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content bg-black">
+               <div class="modal-body">
+                  <div class="text-center">
+                     <h3 class="text-center text-success">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        Correct! Well Done!
+                     </h3>
+                     <div class="progress border border-white mt-4 mb-3">
+                        <div id="stage-progress" class="progress-bar bg-black" style="width: 50%"></div>
+                     </div>
+                     <h4 class="text-white">
+                        Stage:
+                        <span class="stage-number"></span>/<span class="max-stage-number"></span>
+                     </h4>
+                     <button class="btn btn-lg btn-outline-light btn-block mt-3" type="button" onclick="nextStage()"
+                        aria-label="Close">
+                     Next Stage
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal fade" id="wrong-alert" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content bg-black">
+               <div class="modal-body">
+                  <div class="text-center">
+                     <h3 class="text-center text-danger">
+                        <i class="fa  fa fa-times" aria-hidden="true"></i>
+                        Wrong Move! Look again!
+                     </h3>
+                     <button class="btn btn-lg btn-outline-light btn-block mt-3" type="button"
+                        onclick="repeatStage()" aria-label="Close">
+                     Preview Again
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal fade" id="fail-alert" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content bg-black">
+               <div class="modal-body">
+                  <div class="text-center">
+                     <h3 class="text-center text-danger">
+                        <i class="fa  fa fa-times" aria-hidden="true"></i>
+                        Wrong move! You failed.
+                     </h3>
+                     <button class="btn btn-lg btn-outline-light btn-block mt-3" type="button" onclick="startGame()"
+                        aria-label="Close">
+                     Restart Game
+                     <i class="fa fa-refresh" aria-hidden="true"></i>
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal fade" id="won" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content bg-black">
+               <div class="modal-body">
+                  <div class="text-center">
+                     <h3 class="text-center text-primary">
+                        Congratulations!! You Won!
+                     </h3>
+                     <button class="btn btn-lg btn-outline-light btn-block mt-3" type="button" onclick="startGame()" data-dismiss="modal" aria-label="Close">
+                     Restart Game
+                     <i class="fa fa-refresh" aria-hidden="true"></i>
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <audio controls id="player" class="d-none">
+         <source id="player-src" src="assets/audio/correct.mp3">
+      </audio>
+      <audio controls id ="player2" class="d-none">
+         <source id="player-src-2" src="assets/audio/incorrect.mp3">
+      </audio>
+      <audio controls id="player3" class="d-none">
+         <source id ="player-src-3" src="assets/audio/won.mp3">
+      </audio>
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+         crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+         crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+         crossorigin="anonymous"></script>
+      <script src="script/script.js" ></script>
+   </body>
 </html>
