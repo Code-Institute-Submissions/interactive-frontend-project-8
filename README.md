@@ -13,8 +13,8 @@ Its purpose is to provide the user with a enjoyable game.
 
 ## UX 
 ### The ideal user:
-** age 10+ **
-** Seeking memory training challenges**
+*age 10+
+*Seeking memory training challenges
 
 ### User Stories:
 1.As a user : As a new visitor to the site I want the page to be intuitive and  easily navigated.
@@ -105,7 +105,14 @@ Another problem I came across was that sometimes the same tiles were being flipp
 
 Testing was also carried out to ensure that the game would realize when the incorrect tile was being clicked and the appropriate follow on events would occurr such as the preview again or restart game functions. 
 
-
+## Deployment. 
+This project was created using Visual Studio code. I used github to deploy the project. 
+1. I logged into Github
+1. I created a **repository**. 
+1. Select the **settings**tab
+1. Scroll down and under **source** click the dropdown menu labelled **None** and select **Master Branch**
+1. Once this is selected the page will refresh and will be deployed. 
+1. In the **Github Pages** section to find the link. 
 
 ## Credits 
 
