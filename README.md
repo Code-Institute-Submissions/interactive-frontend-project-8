@@ -13,16 +13,16 @@ Its purpose is to provide the user with a enjoyable game.
 
 ## UX 
 ### The ideal user:
-*age 10+
-*Seeking memory training challenges
+* age 10+
+* Seeking memory training challenges
 
 ### User Stories:
-1.As a user : As a new visitor to the site I want the page to be intuitive and  easily navigated.
-1.As a user: As a new visitor I want clear instructions of the how to play the game. 
-1.As a user: I want a game that responds quickly to my interaction.
-1.As a User: I want a game that challenges my memory in a fun way. 
-1.As a user: I want a clear indication of how my progress is during the game. 
-1.As a user: I want to be able to exit the game easily at any point.
+1. As a user : As a new visitor to the site I want the page to be intuitive and  easily navigated.
+1. As a user: As a new visitor I want clear instructions of the how to play the game. 
+1. As a user: I want a game that responds quickly to my interaction.
+1. As a User: I want a game that challenges my memory in a fun way. 
+1. As a user: I want a clear indication of how my progress is during the game. 
+1. As a user: I want to be able to exit the game easily at any point.
 
 
 ## How To Play
