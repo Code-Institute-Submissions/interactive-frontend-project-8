@@ -42,7 +42,7 @@ The strictmode option is a simple checkbox which the user can select if they wis
 ## Skeleton
 
 I created a wireframe using the program "Miro". 
-![Wireframe](https://imgur.com/MtE3Pyo)
+![Wireframe](https://i.imgur.com/MtE3Pyo.jpg)
 
 
 ## Surface
