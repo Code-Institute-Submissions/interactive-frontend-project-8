@@ -5,7 +5,7 @@ var game = {
     currentGame: [],
     playerMoves: [],
     playerMove: 0,
-    maxStageNumber: 2
+    maxStageNumber: 20
 };
 
 
