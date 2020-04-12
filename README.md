@@ -3,11 +3,10 @@
  
  This is my Interactive Front-end Development project. I created a simple memory game which was inspired by the popular game, Simon. 
  
- ---
+ 
  
  
 ## Strategy 
----
 
 My Goal is to design a memory game that is fun, intuitive and user friendly. The page will be simplistic and easy to navigate around. 
 Its purpose is to provide the user with a enjoyable game. 
@@ -27,41 +26,41 @@ Its purpose is to provide the user with a enjoyable game.
 
 
 ## How To Play
----
+
 Press the Start game button and the game container will appear. Wait for the game to flip one of the four tiles.Once the game has revealed the tile and has flipped back over you must select the same tile.  Each time you remmember successfully the game will add one more tile to the pattern. The challenge is to reach level 20. 
 ## Scope 
----
+
 This page is to provide users with quick access to a memory game. The Game is to challenge the users memory and have them remember a sequence of flip tiles and the order in which they appear. 
 
 ## Structure
----
+
 The game buttons are displayed on a black background. Three options are presented to the user, "start", "tutorial" and "strictmode". 
 The start game button triggers the game container to bounce down. Four black tiles appear, the game begins by firstly flipping one tile. Placed above the four tiles is an "exit" button which allows the user to return to the main menu. 
 The tutorial button triggers a modal. The modal contains step by step insturctions. These include a desciption of how to play along with corresponding images. 
 The strictmode option is a simple checkbox which the user can select if they wish to play the game in strictmode. 
 
 ## Skeleton
----
+
 I created a wireframe using the program "Miro". 
-![Wireframe](https://drive.google.com/open?id=1hGU1HIeD9XOk89q3y4HsiNTwUkI7BA-t)
+![Wireframe](https://imgur.com/MtE3Pyo)
 
 
 ## Surface
----
+
 For the surface plane I wanted the design and colour scheme to be minimalist. My surface design was inspired by popular games such as Defender and Pacman. On the back side of the flip tiles I used neon colours, which created a fun contrast with the black background. The buttons turn white when hovered over to help the user identify which button they wish to click. 
 
 For the typography I used google fonts and applied  the "coda caption" font family to all the text and headers on the page. I found this font  to be very clear and legible which will accomadate any users who may suffer with visual impairments. 
 The "WAIT" and "GO" text were coloured yellow and green, this emmualtes the traffic light colour scheme. Giving the user an intrinsic link between when to wait and go, again this calls to any users who may have reading difficulties who could potentially grasp the notion through the colours used. 
 
 ## Technologies
----
+
 -HTML
 -CSS
 -javascript
 -Bootstrap
 
 ## Features 
----
+
 
 #### Bounce Down Effect:
 Upon entry to the page, the game menu reveals itself with a bouncing down effect from the top of the screen. 
@@ -92,12 +91,12 @@ Within this function is an “if” statement that only allows clicking on the t
 
 
 ## Features Left to Implement
----
+
 I would like to implement an option whereby the user could decide how many tiles they want. 
 
 
 ## Testing
----
+
 All testing carried out was done so manually. When developing the game I found that if the user was being shown the pattern they were still able to click on other tiles revealing them. This was not what I wanted for the game as this level of interaction would confuse the user. To avoid this I created an "if" statement that would only allow the tile to be flipped if the game was in start mode and the game was not in showing mode or the tile wasnt already flipped.
 
 Problems with the audio samples appeared when paired with the onclick event. I found that there was latency between the onclick event and the playing of the "correct" audio file. Also if the user clicked the tile in quick succession, sometimes the audio clip was not being played, its as though it was being skipped.  Clearly this isnt something that would provoke a positive response from the user. So to combat this I used the .pause method paired with play() and current time. I set the current time to be [0], meaning that the audio  was starting from the beginning of the clip. This resolved the issue. 
@@ -109,7 +108,7 @@ Testing was also carried out to ensure that the game would realize when the inco
 
 
 ## Credits 
----
+
 All audio samples were taken from Zapsplat.com [https://www.zapsplat.com/sound-effect-category/game-sounds/]
 
  I had help with the transform property used to turn the tiles from [https://www.w3schools.com/]
