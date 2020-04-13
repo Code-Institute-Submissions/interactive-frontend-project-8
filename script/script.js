@@ -163,7 +163,7 @@ function tileClicked() {
 			
 			timeout = setTimeout(function() {
 				elements.audioPlayer.muted = true;
-			}, 150)
+			}, 500)
 			
 
             // check if we reached the end of the current pattern         
