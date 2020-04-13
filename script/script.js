@@ -158,8 +158,8 @@ function tileClicked() {
 			}
 			// play sound when correct tile has been clicked
             // elements.audioPlayer.pause();
-			elements.audioPlayer.currentTime = 0;
 			elements.audioPlayer.muted = false;
+			elements.audioPlayer.currentTime = 0;
 			
 			timeout = setTimeout(function() {
 				elements.audioPlayer.muted = true;
