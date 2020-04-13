@@ -147,12 +147,11 @@ function tileClicked() {
             game.playerMove++;
 
             // play sound when correct tile has been clicked
-            elements.audioPlayer.pause();
+            // elements.audioPlayer.pause();
             elements.audioPlayer.currentTime = 0;
             elements.audioPlayer.play();
 
-
-
+``
             // check if we reached the end of the current pattern         
             if (game.playerMove == game.currentGame.length) {
                 //if game has won
@@ -172,13 +171,12 @@ function tileClicked() {
             // current move did not match current pattern, wrong move
         } else {
 
+			elements.audioPlayer2.play();
             if (game.strictGamemode) {
-                elements.audioPlayer2.play();
                 // show fail alert and prompt to restart or exit game if strict mode has been selected
                 elements.failAlert.modal('show');
             } else {
                 // show wrong move alert and prompt to show pattern again
-                elements.audioPlayer2.play();
                 elements.wrongAlert.modal('show');
             }
         }
