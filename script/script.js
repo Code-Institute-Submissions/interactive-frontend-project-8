@@ -57,7 +57,11 @@ function startGame() {
     elements.stageNumber.text(1);
 
     nextPattern();
-    setTimeout(showPattern, 1500);
+	setTimeout(showPattern, 1500);
+	
+	elements.audioPlayer.muted = true;
+	elements.audioPlayer.play();
+	elements.audioPlayer.loop = true;
 }
 
 
@@ -133,6 +137,8 @@ function repeatStage() {
     setTimeout(showPattern, 1000);
 }
 
+let timeout;
+
 function tileClicked() {
     console.dir(this);
     // only allow clicking on tiles when game is started and game is not showing pattern
@@ -146,12 +152,20 @@ function tileClicked() {
             // increase the pattern pointer
             game.playerMove++;
 
-            // play sound when correct tile has been clicked
+			
+			if (timeout) {
+				clearTimeout(timeout);
+			}
+			// play sound when correct tile has been clicked
             // elements.audioPlayer.pause();
-            elements.audioPlayer.currentTime = 0;
-            elements.audioPlayer.play();
+			elements.audioPlayer.currentTime = 0;
+			elements.audioPlayer.muted = false;
+			
+			timeout = setTimeout(function() {
+				elements.audioPlayer.muted = true;
+			}, 150)
+			
 
-``
             // check if we reached the end of the current pattern         
             if (game.playerMove == game.currentGame.length) {
                 //if game has won
