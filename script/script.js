@@ -60,8 +60,8 @@ function startGame() {
 	setTimeout(showPattern, 1500);
 	
 	elements.audioPlayer.muted = true;
-	elements.audioPlayer.play();
 	elements.audioPlayer.loop = true;
+	elements.audioPlayer.play();
 }
 
 
