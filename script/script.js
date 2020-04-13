@@ -16,7 +16,7 @@ const elements = {
     audioPlayer: document.querySelector('#player'),
     audioPlayer2: document.querySelector('#player2'),
     audioPlayer3: document.querySelector('#player3'),
-    tiles: document.querySelectorAll('.tile'),
+    tiles: $('.tile'),
     correctAlert: $('#correct-alert'),
     wrongAlert: $('#wrong-alert'),
     failAlert: $('#fail-alert'),
@@ -30,7 +30,9 @@ const elements = {
     goText: $('#go-text')
 };
 
+console.log(elements.tiles)
 
+elements.tiles.on("click touchstart", tileClicked);
 
 function clearGame() {
     game.started = false;
@@ -81,8 +83,6 @@ function nextStage() {
     setTimeout(showPattern, 1000);
 }
 
-
-
 // show user the pattern they have to repeat
 function showPattern() {
     // set game status to showing pattern
@@ -117,7 +117,6 @@ function showPattern() {
     }, 1000);
 }
 
-
 function exitGame() {
     clearGame();
     elements.gameContainer.hide();
@@ -134,18 +133,16 @@ function repeatStage() {
     setTimeout(showPattern, 1000);
 }
 
-
-
-function tileClicked(tile) {
-    console.dir(tile);
+function tileClicked() {
+    console.dir(this);
     // only allow clicking on tiles when game is started and game is not showing pattern
-    if (!game.showing && game.started && !tile.classList.contains('flip-card-onclick')) {
+    if (!game.showing && game.started && !this.classList.contains('flip-card-onclick')) {
 
-        flipTile(tile);
+        flipTile(this);
 
 
         // check if current move (tile clicked) matches the tile in the generated pattern
-        if (parseInt(tile.id) == game.currentGame[game.playerMove]) {
+        if (parseInt(this.id) == game.currentGame[game.playerMove]) {
             // increase the pattern pointer
             game.playerMove++;
 
@@ -188,9 +185,6 @@ function tileClicked(tile) {
     }
 }
 
-
-
-
 function flipTile(tile) {
     // unflip all other tiles on pressing a tile
     unflipOtherTiles(tile);
@@ -206,10 +200,10 @@ function flipTile(tile) {
 
 function unflipOtherTiles(currentTile) {
     // for each tile in the grid
-    elements.tiles.forEach(function(tile) {
-        // if its not the currently clicked tile unflip each tile
-        if (tile != currentTile) {
-            tile.classList.remove('flip-card-onclick');
+    elements.tiles.each(function() {
+        // if its not the curreisly clicked tile unflip each tile
+        if (this != currentTile) {
+            this.classList.remove('flip-card-onclick');
         }
     });
 }
