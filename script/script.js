@@ -32,7 +32,10 @@ const elements = {
 
 console.log(elements.tiles)
 
-elements.tiles.on("click touchstart", tileClicked);
+let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
+
+
+elements.tiles.on(touchEvent, tileClicked);
 
 function clearGame() {
     game.started = false;
