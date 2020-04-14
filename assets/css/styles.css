@@ -47,6 +47,8 @@ body {
 
 .flip-card-onclick .flip-card-inner {
   transform: rotateY(180deg);
+
+  
 }
 
 

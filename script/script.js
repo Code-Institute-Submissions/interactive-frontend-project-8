@@ -34,20 +34,7 @@ const elements = {
 console.log(elements.tiles)
 
 elements.tiles.on("click touchstart", tileClicked);
-elements.tiles.ontouchend = function touchEnd(){
-	 // check if current move (tile clicked) matches the tile in the generated pattern
-	 if (parseInt(this.id) == game.currentGame[game.playerMove]) {
-		// increase the pattern pointer
-		game.playerMove++;
-
-		// play sound when correct tile has been clicked
-		
-		elements.audioPlayer.pause(),
-		elements.audioPlayer.currentTime = 0,
-		elements.audioPlayer.play();
-
-}
-}
+elements.tiles.ontouchend("click touchend", tileClicked);
 
 function clearGame() {
     game.started = false;
@@ -167,7 +154,8 @@ function tileClicked() {
             elements.audioPlayer.currentTime = 0,
 			elements.audioPlayer.play();
 			
-		
+			
+
             // check if we reached the end of the current pattern         
             if (game.playerMove == game.currentGame.length) {
                 //if game has won
