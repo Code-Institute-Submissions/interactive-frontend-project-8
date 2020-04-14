@@ -147,7 +147,8 @@ function tileClicked() {
             // increase the pattern pointer
             game.playerMove++;
 
-            // play sound when correct tile has been clicked
+			// play sound when correct tile has been clicked
+			elements.audioPlayer.load();
             elements.audioPlayer.pause();
             elements.audioPlayer.currentTime = 0;
             elements.audioPlayer.play();
