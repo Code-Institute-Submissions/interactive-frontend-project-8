@@ -2,6 +2,7 @@
  ## Memory Tiles
  
  This is my Interactive Front-end Development project. I created a simple memory game which was inspired by the popular game, Simon. 
+ Click [here](https://aliciarawlings.github.io/interactive-frontend-project/) for deployed project. 
  
  
  
@@ -54,10 +55,10 @@ The "WAIT" and "GO" text were coloured yellow and green, this emmualtes the traf
 
 ## Technologies
 
--HTML
--CSS
--javascript
--Bootstrap
+* HTML
+* CSS
+* javascript
+* Bootstrap
 
 ## Features 
 
@@ -101,9 +102,13 @@ All testing carried out was done so manually. When developing the game I found t
 
 Problems with the audio samples appeared when paired with the onclick event. I found that there was latency between the onclick event and the playing of the "correct" audio file. Also if the user clicked the tile in quick succession, sometimes the audio clip was not being played, its as though it was being skipped.  Clearly this isnt something that would provoke a positive response from the user. So to combat this I used the .pause method paired with play() and current time. I set the current time to be [0], meaning that the audio  was starting from the beginning of the clip. This resolved the issue. 
 
+There was an issue on all IOS devices and the ontouch event. A latency between the users touch and the game playing the "correct" audio clip occurred. If the user selected the tiles in a quick motion the audio clips would be skipped over sometimes. So if the user selected five correct tiles quickly the game might only play 3 "correct" audio clips. To resolve this I used an audio wrapper "Lowlag", which resulted in an audio clip being played for each touch of a correct tile.  
+
 Another problem I came across was that sometimes the same tiles were being flipped consecutively. This wasnt something that I wanted in the game as it meant that the user would have to wait for the tile to flip and unflip twice. It didnt look good and it would take away from the fluidity of the users input and interaction with the game. To avoid this the  variable ,"nexTileId" contains a "while" statement which verifys that the next generated ID is not the same as the previous one before pushing it into the array. 
 
 Testing was also carried out to ensure that the game would realize when the incorrect tile was being clicked and the appropriate follow on events would occurr such as the preview again or restart game functions. 
+
+
 
 ## Deployment. 
 This project was created using Visual Studio code. I used github to deploy the project. 
@@ -119,6 +124,8 @@ This project was created using Visual Studio code. I used github to deploy the p
 All audio samples were taken from Zapsplat.com [https://www.zapsplat.com/sound-effect-category/game-sounds/]
 
  I had help with the transform property used to turn the tiles from [https://www.w3schools.com/]
+ 
+ Information to resolve audio lag was found at https://lowlag.alienbill.com/. 
  
  
 
