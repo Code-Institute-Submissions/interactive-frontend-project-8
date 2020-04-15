@@ -9,14 +9,9 @@ var game = {
     maxStageNumber: 20
 };
 
-
-
 const elements = {
     gameContainer: $('#game-container'),
     gameMenu: $('#game-menu'),
-    audioPlayer: document.querySelector('#player'),
-    audioPlayer2: document.querySelector('#player2'),
-    audioPlayer3: document.querySelector('#player3'),
     tiles: $('.tile'),
     correctAlert: $('#correct-alert'),
     wrongAlert: $('#wrong-alert'),
@@ -31,17 +26,22 @@ const elements = {
     goText: $('#go-text')
 };
 
-console.log(elements.tiles)
-
 elements.tiles.on("click touchstart", tileClicked);
-elements.tiles.ontouchend("click touchend", tileClicked);
+
+function init() {
+    lowLag.init();
+    lowLag.load("assets/audio/correct.mp3", "correct");
+    lowLag.load("assets/audio/incorrect.mp3", "incorrect");
+    lowLag.load("assets/audio/won.mp3", "won");
+}
+
+init();
 
 function clearGame() {
     game.started = false;
     game.currentGame = [];
     game.playerMove = 0;
 }
-
 
 function startGame() {
     clearGame();
@@ -149,19 +149,14 @@ function tileClicked() {
             game.playerMove++;
 
 			// play sound when correct tile has been clicked
-			
-            elements.audioPlayer.pause(),
-            elements.audioPlayer.currentTime = 0,
-			elements.audioPlayer.play();
-			
-			
-
+            lowLag.play("correct");
+		
             // check if we reached the end of the current pattern         
             if (game.playerMove == game.currentGame.length) {
                 //if game has won
                 if (game.playerMove == game.maxStageNumber) {
                     elements.wonAlert.modal('show');
-                    elements.audioPlayer3.play();
+                    lowLag.play("won");
                 } else {
                     // update the progress bar
                     elements.stageProgress.css('width', (game.currentGame.length / game.maxStageNumber) * 100 + "%");
@@ -175,13 +170,13 @@ function tileClicked() {
             // current move did not match current pattern, wrong move
         } else {
 
+            lowLag.play("incorrect");
+
             if (game.strictGamemode) {
-                elements.audioPlayer2.play();
                 // show fail alert and prompt to restart or exit game if strict mode has been selected
                 elements.failAlert.modal('show');
             } else {
                 // show wrong move alert and prompt to show pattern again
-                elements.audioPlayer2.play();
                 elements.wrongAlert.modal('show');
             }
         }
