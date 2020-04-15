@@ -28,7 +28,7 @@ Its purpose is to provide the user with a enjoyable game.
 
 ## How To Play
 
-Press the Start game button and the game container will appear. Wait for the game to flip one of the four tiles.Once the game has revealed the tile and has flipped back over you must select the same tile.  Each time you remmember successfully the game will add one more tile to the pattern. The challenge is to reach level 20. 
+Press the Start game button and the game container will appear. Wait for the game to flip one of the four tiles.Once the game has revealed the tile and has flipped back over you must select the same tile.Each time you remember successfully,the game will add one more tile to the pattern. The challenge is to reach level 20. 
 ## Scope 
 
 This page is to provide users with quick access to a memory game. The Game is to challenge the users memory and have them remember a sequence of flip tiles and the order in which they appear. 
@@ -59,7 +59,7 @@ The "WAIT" and "GO" text were coloured yellow and green, this emmualtes the traf
 * CSS
 * javascript
 * Bootstrap
-
+* jQuery
 ## Features 
 
 
